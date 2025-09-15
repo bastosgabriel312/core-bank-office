@@ -1,0 +1,12 @@
+<h2 mat-dialog-title>Excluir Agência</h2>
+<mat-dialog-content>
+    <p>Tem certeza que deseja excluir essa agência?</p>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button="filled" class="mat-raised-button" (click)="close()">
+        Cancelar
+    </button>
+    <button mat-button="filled" class="mat-raised-button" (click)="confirmDelete()" cdkTrapFocus="true">
+        Confirmar
+    </button>
+</mat-dialog-actions>

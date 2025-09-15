@@ -1,0 +1,33 @@
+mat-card {
+    border: 1px solid #908f8f99;
+    max-width: 200 px;
+}
+
+mat-card:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+mat-card-header {
+    margin-bottom: 1rem;
+}
+
+
+p {
+    font-size: small;
+}
+
+mat-card.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+  user-select: none;
+  cursor: not-allowed;
+}
+
+@media screen and (max-width: 830px) {
+    mat-card {
+        min-width: 200px;
+    }
+
+}

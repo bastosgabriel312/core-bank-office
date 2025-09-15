@@ -1,0 +1,97 @@
+<h2 mat-dialog-title>{{description}}</h2>
+
+<mat-dialog-content [formGroup]="agencyForm" class="dialog-form">
+    <mat-form-field floatLabel="always">
+        <mat-label>Nome da Agência</mat-label>
+        <input matInput formControlName="name" maxlength="50">
+        @if (agencyForm.get('name')?.errors?.['required']) {
+        <mat-error>
+            Nome da agência é obrigatório
+        </mat-error>
+        }
+    </mat-form-field>
+    <mat-form-field floatLabel="always">
+        <mat-label>Código</mat-label>
+        <input matInput formControlName="code" maxlength="10">
+        @if (agencyForm.get('code')?.errors?.['required']) {
+        <mat-error>
+            Código da agência é obrigatório
+        </mat-error>
+        }
+    </mat-form-field>
+    <mat-form-field floatLabel="always">
+        <mat-label>Endereço</mat-label>
+        <input matInput formControlName="address" maxlength="100">
+        @if (agencyForm.get('address')?.errors?.['required']) {
+        <mat-error>
+            Endereço da agência é obrigatório
+        </mat-error>
+        }
+    </mat-form-field>
+    <mat-form-field floatLabel="always">
+        <mat-label>Estado</mat-label>
+        <mat-select formControlName="state">
+            @for (state of states; track $index) {
+            <mat-option [value]="state.name">
+                {{ state.name }}
+            </mat-option>
+            }
+        </mat-select>
+        @if (agencyForm.get('state')?.errors?.['required']) {
+        <mat-error>
+            Estado da agência é obrigatório
+        </mat-error>
+        }
+    </mat-form-field>
+
+    <mat-card class="location-section">
+        <mat-card-title>Localização da Agência</mat-card-title>
+        <mat-card-content>
+            <div class="coordinate-fields">
+                <mat-form-field class="medium-width" floatLabel="always">
+                    <mat-label>Latitude</mat-label>
+                    <input type="number" min="-90" max="90" step="0.0001" matInput formControlName="posX"
+                        maxlength="10">
+                    @if (agencyForm.get('posX')?.errors?.['required']) {
+                    <mat-error> é obrigatória</mat-error>
+                    }
+                    @if (agencyForm.get('posX')?.hasError('min') || agencyForm.get('posX')?.hasError('max')) {
+                    <mat-error>A Latitude deve estar entre -90 e 90</mat-error>
+                    }
+                </mat-form-field>
+
+                <mat-form-field class="medium-width" floatLabel="always">
+                    <mat-label>Longitude</mat-label>
+                    <input type="number" min="-180" max="180" step="0.0001" matInput formControlName="posY"
+                        maxlength="10">
+                    @if (agencyForm.get('posY')?.errors?.['required']) {
+                    <mat-error>Longitude é obrigatória</mat-error>
+                    }
+                    @if (agencyForm.get('posY')?.hasError('min') || agencyForm.get('posY')?.hasError('max')) {
+                    <mat-error>A Longitude deve estar entre -180 e 180</mat-error>
+                    }
+                </mat-form-field>
+            </div>
+
+            <div class="map-link">
+                <a mat-stroked-button color="primary"
+                    [href]="`https://www.google.com/maps?q=${agencyForm.get('posX')?.value},${agencyForm.get('posY')?.value}`"
+                    target="_blank" [disabled]="!agencyForm.get('posX')?.valid || !agencyForm.get('posY')?.valid">
+                    Ver no Google Maps
+                </a>
+            </div>
+        </mat-card-content>
+    </mat-card>
+
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button matButton="filled" class="mat-raised-button cancel-button secondary" (click)="close()">
+        <mat-icon>close</mat-icon>
+        Cancelar</button>
+    <button mat-button color="primary" class="mat-raised-button save-button" (click)="clickSave()"
+        [disabled]="!agencyForm.valid">
+        <mat-icon>save</mat-icon>
+        Salvar</button>
+</mat-dialog-actions>

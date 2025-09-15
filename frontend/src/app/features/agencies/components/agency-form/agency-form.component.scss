@@ -1,0 +1,71 @@
+.dialog-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 12px;
+    min-height: 75vh;
+
+    h2 {
+        width: 90% !important;
+    } 
+
+    mat-form-field {
+        width: 100%;
+    }
+
+    mat-card {
+        width: 100%;
+        
+    .mdc-button {
+        justify-content: end;
+        font-size: 0.8rem;
+    }}
+
+    mat-card-title {
+        margin-left: 1vw;
+        margin-top: 1vh;
+        font-size: 1.2rem;
+    }
+    .medium-width {
+        max-width: 49%;
+        margin-bottom: 20px;
+    }
+
+    .medium-width:nth-child(2) {
+        margin-left: 2%;
+    }
+
+}
+
+button {
+    border-radius: 4px !important;
+    border: 1px solid #908f8f99 ;
+}
+
+
+button.save-button {
+    background-color: #4caf50;
+    color: white !important;
+}
+
+button.cancel-button {
+    background-color: white !important;
+    color: #363636;
+}
+
+.cancel-button:hover {
+    background-color: #f2f2f2 !important;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield; 
+}
+

@@ -1,0 +1,19 @@
+<mat-card appearance="outlined" class="card primary" (click)="route ? (navigateTo(route)) : null"
+[class.disabled]="disabled">
+    <mat-card-header>
+        <mat-icon mat-card-avatar >{{iconName}}</mat-icon>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-card-title >{{ title }}</mat-card-title>
+        @if(subtitle){
+        <mat-card-subtitle >{{ subtitle }}</mat-card-subtitle>
+        }
+        @if(content){
+        <div>
+            <p>
+                {{ content }}
+            </p>
+        </div>
+        }
+    </mat-card-content>
+</mat-card>

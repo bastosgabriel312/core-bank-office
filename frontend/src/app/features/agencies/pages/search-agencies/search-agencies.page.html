@@ -1,0 +1,11 @@
+<div class="justify-end">
+    <button matButton="elevated" type="button" (click)="submitSearch()" [disabled]="loadingLocation">
+        {{ loadingLocation ? 'Obtendo localização...' : 'Encontrar agências próximas' }}
+    </button>
+
+    @if(locationError)
+    { <div style="color:red">{{ locationError }}</div>
+    }
+</div>
+
+<app-agency-list [isLoading]="loadingLocation" [search]="true" [coordinates]="coordinates" #agencyList></app-agency-list>

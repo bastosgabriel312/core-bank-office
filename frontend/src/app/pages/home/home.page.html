@@ -1,0 +1,7 @@
+<div class="card-grid">
+    @for (card of cards; track card) {
+    <app-card [title]="card.title" [subtitle]="card.subtitle" [iconName]="card.iconName"
+        [route]="card.route" [disabled]="!card.active"></app-card>
+
+    }
+</div>

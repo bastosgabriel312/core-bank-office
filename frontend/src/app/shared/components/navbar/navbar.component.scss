@@ -1,0 +1,67 @@
+.active {
+    color: #c00;
+}
+
+.disabled {
+    opacity: 0.6;
+    pointer-events: none;
+    user-select: none;
+    cursor: not-allowed;
+}
+
+
+.justify-end {
+    font-size: medium;
+    size: 10px;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+
+    &.username {
+        margin-right: 1rem;
+    }
+}
+
+
+mat-sidenav {
+    padding-top: 3.5rem;
+
+    @media screen and (min-width: 600px) {
+        padding-top: 4rem;
+    }
+
+    .entry {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.75rem;
+    }
+}
+
+mat-sidenav-content {
+    padding-top: 3.5rem;
+    padding: 1rem;
+    min-height: 82.7vh !important;
+    background-color: #e5e5e5;
+
+    @media screen and (min-width: 600px) {
+        padding: 4rem 8rem;
+    }
+
+    h1 {
+        padding: 0 1rem;
+    }
+}
+
+mat-toolbar {
+    position: fixed;
+    top: 0;
+    z-index: 2;
+}
+
+@media screen and (max-width: 600px) {
+    .username {
+        display: none;
+    }
+
+}

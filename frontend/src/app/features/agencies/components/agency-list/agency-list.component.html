@@ -1,0 +1,52 @@
+<div class="agency-list-container">
+  <mat-progress-bar mode="indeterminate" [style.opacity]="isLoading ? 1 : 0">
+  </mat-progress-bar>
+
+
+  <mat-table [dataSource]="dataSource" matSort (matSortChange)="sortChange($event)"
+    class="mat-elevation-z8 custom-table">
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Nome </mat-header-cell>
+      <mat-cell *matCellDef="let agency"> {{agency.name}} </mat-cell>
+    </ng-container>
+
+    <!-- Code Column -->
+    <ng-container matColumnDef="code">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Código </mat-header-cell>
+      <mat-cell *matCellDef="let agency"> {{agency.code}} </mat-cell>
+    </ng-container>
+
+    <!-- State Column -->
+    <ng-container matColumnDef="state">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Estado </mat-header-cell>
+      <mat-cell *matCellDef="let agency"> {{agency.state}} </mat-cell>
+    </ng-container>
+
+    <!-- Address Column -->
+    <ng-container matColumnDef="address">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Endereço </mat-header-cell>
+      <mat-cell *matCellDef="let agency"> {{agency.address}} </mat-cell>
+    </ng-container>
+
+    <!-- Actions Column -->
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef> Ações</mat-header-cell>
+      <mat-cell *matCellDef="let actions">
+        <button mat-icon-button color="primary" (click)="update(actions.id)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="danger" (click)="delete(actions.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+
+  <mat-paginator (page)="handlePageEvent($event)" [length]="resultsLength" [pageSize]="pageRequest.size"
+    [pageIndex]="pageRequest.page" [hidePageSize]="true"></mat-paginator>
+
+</div>

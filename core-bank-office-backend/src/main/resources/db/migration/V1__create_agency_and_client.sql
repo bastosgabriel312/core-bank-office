@@ -1,0 +1,20 @@
+CREATE TABLE IF NOT EXISTS agency (
+    id serial PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    code VARCHAR(50) NOT NULL,
+    address VARCHAR(255),
+    state VARCHAR(100),
+    pos_x DOUBLE PRECISION,
+    pos_y DOUBLE PRECISION,
+    active BOOLEAN DEFAULT TRUE
+);
+
+CREATE TABLE IF NOT EXISTS client (
+    id serial PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    pos_x DOUBLE PRECISION,
+    pos_y DOUBLE PRECISION,
+    active BOOLEAN DEFAULT TRUE
+);
